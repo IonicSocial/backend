@@ -1,0 +1,9 @@
+E:\SocialApp\Code\Web\SocialApp.DBProject\bin\Debug\SocialApp.DBProject.dacpac
+E:\SocialApp\Code\Web\SocialApp.DBProject\bin\Debug\SocialApp.DBProject.dll
+E:\SocialApp\Code\Web\SocialApp.DBProject\bin\Debug\SocialApp.DBProject.pdb
+E:\SocialApp\Code\Web\SocialApp.DBProject\obj\Debug\SocialApp.DBProject.dll
+E:\SocialApp\Code\Web\SocialApp.DBProject\obj\Debug\SocialApp.DBProject.pdb
+E:\SocialApp\Code\Web\SocialApp.DBProject\obj\Debug\Model.xml
+E:\SocialApp\Code\Web\SocialApp.DBProject\obj\Debug\refactor.xml
+E:\SocialApp\Code\Web\SocialApp.DBProject\obj\Debug\postdeploy.sql
+E:\SocialApp\Code\Web\SocialApp.DBProject\obj\Debug\predeploy.sql

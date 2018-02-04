@@ -1,0 +1,81 @@
+﻿@model IEnumerable<NearBy.CenterInformation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            City 
+        </th>
+        <th>
+            Location 
+        </th>
+        <th>
+           Center 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PinCode)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+       
+    
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.City.CityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.LocationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CenterTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PinCode)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Latitude)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longitude)
+        </td>
+     
+     
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CenterID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CenterID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CenterID })
+        </td>
+    </tr>
+}
+
+</table>

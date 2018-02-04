@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="366b0d4b5d8f438ca032b8ec456200c2" Name="Diagram1">
+        <EntityTypeShape EntityType="SocialAppModel.C__MigrationHistory" PointX="7.75" PointY="4.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.AppSetting" PointX="9.75" PointY="8.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.AspNetRole" PointX="0.75" PointY="2.5" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.AspNetUserClaim" PointX="5.25" PointY="1" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.AspNetUserLogin" PointX="5.25" PointY="3.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.AspNetUser" PointX="3" PointY="1.375" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.City" PointX="0.75" PointY="7.875" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.Location" PointX="3" PointY="7.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.LocationInformation" PointX="5.25" PointY="7" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.MediaType" PointX="9.75" PointY="4.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.SubscriptionType" PointX="9.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SocialAppModel.UserSubscription" PointX="7.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <AssociationConnector ManuallyRouted="false" Association="SocialAppModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector ManuallyRouted="false" Association="SocialAppModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector ManuallyRouted="false" Association="SocialAppModel.FK_CenterInformation_City" />
+        <AssociationConnector ManuallyRouted="false" Association="SocialAppModel.FK_Location_City" />
+        <AssociationConnector ManuallyRouted="false" Association="SocialAppModel.FK_CenterInformation_Location" />
+        <AssociationConnector ManuallyRouted="false" Association="SocialAppModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="SocialAppModel.TextTo" Width="1.5" PointX="7.375" PointY="10.75" />
+        <EntityTypeShape EntityType="SocialAppModel.UserMedia" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SocialAppModel.MediaLocation" Width="1.5" PointX="9.375" PointY="10.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

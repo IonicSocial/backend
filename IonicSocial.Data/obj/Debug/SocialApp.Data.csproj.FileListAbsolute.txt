@@ -1,0 +1,10 @@
+E:\SocialApp\Code\Web\SocialApp.Data\bin\Debug\SocialApp.Data.dll.config
+E:\SocialApp\Code\Web\SocialApp.Data\bin\Debug\SocialApp.Data.dll
+E:\SocialApp\Code\Web\SocialApp.Data\bin\Debug\SocialApp.Data.pdb
+E:\SocialApp\Code\Web\SocialApp.Data\bin\Debug\EntityFramework.dll
+E:\SocialApp\Code\Web\SocialApp.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\SocialApp\Code\Web\SocialApp.Data\bin\Debug\EntityFramework.xml
+E:\SocialApp\Code\Web\SocialApp.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\SocialApp\Code\Web\SocialApp.Data\obj\Debug\SocialApp.Data.dll
+E:\SocialApp\Code\Web\SocialApp.Data\obj\Debug\SocialApp.Data.pdb
+E:\SocialApp\Code\Web\SocialApp.Data\obj\Debug\SocialApp.Data.csprojResolveAssemblyReference.cache

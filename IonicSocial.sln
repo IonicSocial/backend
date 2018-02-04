@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IonicSocial.API", "IonicSocial.API\IonicSocial.API.csproj", "{4CE0423B-0F87-4716-9DCB-851B819659EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IonicSocial.Data", "IonicSocial.Data\IonicSocial.Data.csproj", "{77F6C413-8B7E-4E01-87DB-E6AECD0E2CA1}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IonicSocial.DBProject", "IonicSocial.DBProject\IonicSocial.DBProject.sqlproj", "{D034FF29-E59E-4E37-A695-D8AA0BFA8F96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IonicSocial.Web", "IonicSocial.Web\IonicSocial.Web.csproj", "{5E45F5F0-BB4D-4422-9F49-253B32A7E70A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CE0423B-0F87-4716-9DCB-851B819659EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE0423B-0F87-4716-9DCB-851B819659EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE0423B-0F87-4716-9DCB-851B819659EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE0423B-0F87-4716-9DCB-851B819659EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F6C413-8B7E-4E01-87DB-E6AECD0E2CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F6C413-8B7E-4E01-87DB-E6AECD0E2CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F6C413-8B7E-4E01-87DB-E6AECD0E2CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F6C413-8B7E-4E01-87DB-E6AECD0E2CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D034FF29-E59E-4E37-A695-D8AA0BFA8F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D034FF29-E59E-4E37-A695-D8AA0BFA8F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D034FF29-E59E-4E37-A695-D8AA0BFA8F96}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D034FF29-E59E-4E37-A695-D8AA0BFA8F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D034FF29-E59E-4E37-A695-D8AA0BFA8F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D034FF29-E59E-4E37-A695-D8AA0BFA8F96}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5E45F5F0-BB4D-4422-9F49-253B32A7E70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E45F5F0-BB4D-4422-9F49-253B32A7E70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E45F5F0-BB4D-4422-9F49-253B32A7E70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E45F5F0-BB4D-4422-9F49-253B32A7E70A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SocialAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ContextKey" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Model" Nullable="false" MaxLength="Max" FixedLength="false" Type="Binary" />
+    <Property Name="ProductVersion" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" Type="String" />
+  </EntityType>
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="AppSettingsID" />
+    </Key>
+    <Property Name="AppSettingsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ClaimType" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ClaimValue" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ProviderKey" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="UserId" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Email" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="EmailConfirmed" Nullable="false" Type="Boolean" />
+    <Property Name="PasswordHash" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="SecurityStamp" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PhoneNumber" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PhoneNumberConfirmed" Nullable="false" Type="Boolean" />
+    <Property Name="TwoFactorEnabled" Nullable="false" Type="Boolean" />
+    <Property Name="LockoutEndDateUtc" Precision="3" Type="DateTime" />
+    <Property Name="LockoutEnabled" Nullable="false" Type="Boolean" />
+    <Property Name="AccessFailedCount" Nullable="false" Type="Int32" />
+    <Property Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="InsertedBy" Type="Int64" />
+    <Property Name="InsertedDate" Precision="3" Type="DateTime" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="LocationInformations" Relationship="Self.FK_CenterInformation_City" FromRole="City" ToRole="LocationInformation" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Location_City" FromRole="City" ToRole="Location" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="CityID" Nullable="false" Type="Int32" />
+    <Property Name="LocationName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="InsertedBy" Type="Int64" />
+    <Property Name="InsertedDate" Precision="3" Type="DateTime" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="City" Relationship="Self.FK_Location_City" FromRole="Location" ToRole="City" />
+    <NavigationProperty Name="LocationInformations" Relationship="Self.FK_CenterInformation_Location" FromRole="Location" ToRole="LocationInformation" />
+  </EntityType>
+  <EntityType Name="LocationInformation">
+    <Key>
+      <PropertyRef Name="CenterID" />
+    </Key>
+    <Property Name="CenterID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="CityID" Nullable="false" Type="Int32" />
+    <Property Name="LocationID" Nullable="false" Type="Int32" />
+    <Property Name="CenterTitle" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Address" MaxLength="500" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ContactNumber" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="PinCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="GeogCol1" Type="Geography" />
+    <Property Name="GeogCol2" MaxLength="Max" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" Type="String" />
+    <Property Name="Latitude" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Longitude" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="InsertedBy" Type="Int64" />
+    <Property Name="InsertedDate" Precision="3" Type="DateTime" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="City" Relationship="Self.FK_CenterInformation_City" FromRole="LocationInformation" ToRole="City" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_CenterInformation_Location" FromRole="LocationInformation" ToRole="Location" />
+  </EntityType>
+  <EntityType Name="MediaType">
+    <Key>
+      <PropertyRef Name="MediaTypeID" />
+    </Key>
+    <Property Name="MediaTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="InsertedBy" Nullable="false" Type="Int64" />
+    <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedDate" Precision="3" Type="DateTime" />
+    <Property Name="IsActive" Nullable="false" Type="Boolean" />
+    <Property Name="IsDeleted" Nullable="false" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SubscriptionType">
+    <Key>
+      <PropertyRef Name="SubscriptionTypeID" />
+    </Key>
+    <Property Name="SubscriptionTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="SubsriptionType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="Price" Nullable="false" Precision="18" Scale="0" Type="Decimal" />
+    <Property Name="Duration" Nullable="false" Type="Byte" />
+    <Property Name="OfferCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="InsertedBy" Nullable="false" Type="Int64" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedDate" Precision="3" Type="DateTime" />
+    <Property Name="IsActive" Nullable="false" Type="Boolean" />
+    <Property Name="IsDeleted" Nullable="false" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="UserSubscription">
+    <Key>
+      <PropertyRef Name="UserSubscriptionID" />
+    </Key>
+    <Property Name="UserSubscriptionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int64" />
+    <Property Name="SubscriptionType" Nullable="false" Type="Int32" />
+    <Property Name="StartDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="EndDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="OfferCode" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="InsertedBy" Nullable="false" Type="Int64" />
+    <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="UpdatedDate" MaxLength="10" FixedLength="true" Unicode="true" Type="String" />
+    <Property Name="IsActive" Nullable="false" Type="Boolean" />
+    <Property Name="IsDeleted" Nullable="false" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Type="Self.AspNetUser" Multiplicity="1" Role="AspNetUsers">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Self.AspNetUserClaim" Multiplicity="*" Role="AspNetUserClaims" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Type="Self.AspNetUser" Multiplicity="1" Role="AspNetUsers">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="Self.AspNetUserLogin" Multiplicity="*" Role="AspNetUserLogins" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CenterInformation_City">
+    <End Type="Self.City" Multiplicity="1" Role="City" />
+    <End Type="Self.LocationInformation" Multiplicity="*" Role="LocationInformation" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="LocationInformation">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_City">
+    <End Type="Self.City" Multiplicity="1" Role="City" />
+    <End Type="Self.Location" Multiplicity="*" Role="Location" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CenterInformation_Location">
+    <End Type="Self.Location" Multiplicity="1" Role="Location" />
+    <End Type="Self.LocationInformation" Multiplicity="*" Role="LocationInformation" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationID" />
+      </Principal>
+      <Dependent Role="LocationInformation">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Type="Self.AspNetRole" Multiplicity="*" Role="AspNetRoles" />
+    <End Type="Self.AspNetUser" Multiplicity="*" Role="AspNetUsers" />
+  </Association>
+  <EntityContainer Name="SocialAppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="LocationInformations" EntityType="Self.LocationInformation" />
+    <EntitySet Name="MediaTypes" EntityType="Self.MediaType" />
+    <EntitySet Name="SubscriptionTypes" EntityType="Self.SubscriptionType" />
+    <EntitySet Name="UserSubscriptions" EntityType="Self.UserSubscription" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+      <End EntitySet="AspNetUserClaims" Role="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+      <End EntitySet="AspNetUserLogins" Role="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CenterInformation_City" Association="Self.FK_CenterInformation_City">
+      <End EntitySet="Cities" Role="City" />
+      <End EntitySet="LocationInformations" Role="LocationInformation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_City" Association="Self.FK_Location_City">
+      <End EntitySet="Cities" Role="City" />
+      <End EntitySet="Locations" Role="Location" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CenterInformation_Location" Association="Self.FK_CenterInformation_Location">
+      <End EntitySet="Locations" Role="Location" />
+      <End EntitySet="LocationInformations" Role="LocationInformation" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End EntitySet="AspNetRoles" Role="AspNetRoles" />
+      <End EntitySet="AspNetUsers" Role="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="TextToes" EntityType="SocialAppModel.TextTo" />
+    <EntitySet Name="UserMedias" EntityType="SocialAppModel.UserMedia" />
+    <EntitySet Name="MediaLocations" EntityType="SocialAppModel.MediaLocation" />
+  </EntityContainer>
+  <EntityType Name="TextTo">
+    <Key>
+      <PropertyRef Name="TextToID" />
+    </Key>
+    <Property Name="TextToID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TextTo1" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserMedia">
+    <Key>
+      <PropertyRef Name="MediaID" />
+    </Key>
+    <Property Name="MediaID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MediaType" Type="Int32" Nullable="false" />
+    <Property Name="ThumbPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MediaPath" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ShortDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MediaLocation">
+    <Key>
+      <PropertyRef Name="MediaLocationID" />
+    </Key>
+    <Property Name="MediaLocationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MediaID" Type="Int64" Nullable="false" />
+    <Property Name="Lat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Long" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ZIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="Int32" />
+    <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+</Schema>
